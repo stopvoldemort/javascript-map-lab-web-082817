@@ -10,7 +10,20 @@
     <main id="main">
     </main>
     <script src="index.js"></script>
+    <script type="text/javascript">
+      const sortedRobots = robots.map((robot) => {
+        newRobot = Object.assign({}, robot)
+        newRobot.alliance = 'autobot'
+        if (knownDecepticons.includes(robot.name)) {newRobot.alliance = 'decepticon'}
+        return newRobot
+      })
 
+      const coloredZebraStripes = zebraStripes.map((stripe, i) => {
+        const newStripe = Object.assign({}, stripe)
+        i%2 === 0 ? newStripe.color = "black" : newStripe.color = "white"
+        return newStripe
+      })
+    </script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
